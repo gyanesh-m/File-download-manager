@@ -14,24 +14,19 @@ type Data struct {
 	Urls []string `json:"urls"`
 }
 
-<<<<<<< Updated upstream
-=======
+
 type Packet struct{
 	Url string
 	Path string
 }
->>>>>>> Stashed changes
 type Error struct{
 	internalCode int `json:"internal_code"`
 	message string `json:"message"`
 }
 
-<<<<<<< Updated upstream
-=======
 type Id struct{
 	Id string `json:id`
 }
->>>>>>> Stashed changes
 type Response struct {
 	Id           string `json:id`
 	StartTime    time.Time `json:"start_time"`
@@ -40,26 +35,6 @@ type Response struct {
 	DownloadType string `json:"download_type"`
 	Files        map[string]string `json:files`
 }
-<<<<<<< Updated upstream
-type serial struct{
-	data Data
-	response Response
-}
-type concurrent struct{
-	threads int
-	data Data
-	response Response
-}
-type Download interface{
-	download()
-}
-func(s serial) download(){
-	
-}
-func(c concurrent) download(){
-
-}
-=======
 
 type Requests interface{
 	Download(w http.ResponseWriter)
@@ -219,4 +194,3 @@ func DownloadFile(filepath string, url string) error {
 	_, err = io.Copy(out, resp.Body)
 	return err
 }
->>>>>>> Stashed changes
